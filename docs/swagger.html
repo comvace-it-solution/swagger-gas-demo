@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>模擬実習API仕様書</title>
-    <link rel="stylesheet" href="swagger-ui/swagger-ui-dist/swagger-ui.css">
+    <link rel="stylesheet" href="swagger-ui/swagger-ui.css">
 </head>
 <body>
     <div id="swagger-ui"></div>
-    <link rel="stylesheet" href="swagger-ui-dist/swagger-ui.css">
-    <script src="swagger-ui-dist/swagger-ui-bundle.js"></script>
-    <script src="swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+    <script src="swagger-ui/swagger-ui-bundle.js"></script>
+    <script src="swagger-ui/swagger-ui-standalone-preset.js"></script>
 
     <script>
         // 固定パスワード
         const PASSWORD = "comvace123";
 
         // パスワード確認ダイアログ
-        const input = prompt("パスワード");
+        const input = prompt("Swagger UI にアクセスするにはパスワードを入力してください:");
         if (input !== PASSWORD) {
-        alert("パスワードが違います");
-        throw new Error("Unauthorized");
+            alert("パスワードが違います。アクセスできません。");
+            throw new Error("Unauthorized");
         }
 
-        // 認証通ったらSwagger初期化
+        // 認証通ったら Swagger UI を初期化
         const ui = SwaggerUIBundle({
-        url: "swagger.yaml",
-        dom_id: '#swagger-ui',
-        presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-        ],
-        layout: "StandaloneLayout"
+            url: "swagger.yaml",
+            dom_id: '#swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
         });
     </script>
 </body>
