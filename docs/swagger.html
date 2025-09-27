@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>模擬実習API仕様書</title>
+    <link rel="stylesheet" href="swagger-ui/swagger-ui-dist/swagger-ui.css">
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <link rel="stylesheet" href="swagger-ui-dist/swagger-ui.css">
+    <script src="swagger-ui-dist/swagger-ui-bundle.js"></script>
+    <script src="swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+    <script>
+        // 固定パスワード
+        const PASSWORD = "comvace123";
+
+        // パスワード確認ダイアログ
+        const input = prompt("パスワード");
+        if (input !== PASSWORD) {
+        alert("パスワードが違います");
+        throw new Error("Unauthorized");
+        }
+
+        // 認証通ったらSwagger初期化
+        const ui = SwaggerUIBundle({
+        url: "swagger.yaml",
+        dom_id: '#swagger-ui',
+        presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset
+        ],
+        layout: "StandaloneLayout"
+        });
+    </script>
+</body>
+</html>

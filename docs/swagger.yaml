@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: GAS Web API
+  version: 1.0.1
+  description: このドキュメントは模擬実習で使用するAPI仕様書です。Try it out 機能を使用することで実際のHTTPリクエストの検証も可能です。
+
+servers:
+  - url: https://script.google.com/macros/s/AKfycbzWouzV0ol5qMpbB_Ok6nUFDSUtCM5I0NRLdrluaQu1LDMOz-ssgi9zJJqTtymszy0
+
+paths:
+  /exec:
+    get:
+      summary: データ取得
+      description: table パラメータに応じて 各テーブルデータを取得します。id パラメータ指定で単一レコードの取得も可能です。
+      parameters:
+        - name: table
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [auth, users, attendance, salary]
+          description:  DBテーブル
+        - name: id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: レコードID（省略時は全件取得）
+      responses:
+        '200':
+          description: リクエスト成功
+          content:
+            application/json:
+              examples:
+                auth:
+                  summary: 認証情報のデータ例
+                  value:
+                    - id: 1
+                      user_id: 2
+                      email: "sato@example.com"
+                      password: "comvace002"
+                users:
+                  summary: ユーザー情報のデータ例
+                  value:
+                    - id: 1
+                      user_name: "山田 太郎"
+                      email: "yamada@example.com"
+                      password: "comvace001"
+                      phone_number: "09011112222"
+                      post_number: 7001234
+                      address_1: "岡山県"
+                      address_2: "岡山市北区表町1-2-3"
+                      address_3: "サンプルハイツ101"
+                      birthday: "2000-09-14"
+                attendance:
+                  summary: 勤怠情報のデータ例
+                  value:
+                    - id: 1
+                      user_id: 2
+                      work_start_dt: "2025-09-22T00:00:00.000Z"
+                      work_end_dt: "2025-09-22 18:00"
+                      break_start_dt: "2025-09-22T03:00:00.000Z"
+                      break_end_dt: "2025-09-22T04:00:00.000Z"
+                      state: 0
+                      updated_dt: "2025-09-22 18:00"
+                salary:
+                  summary: 給与情報のデータ例
+                  value:
+                    - id: 1
+                      user_id: 2
+                      hourly_wage: 1200
