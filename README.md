@@ -1,6 +1,8 @@
 # GAS Web API
 模擬実習用 GAS Web API 仕様書管理プロジェクト。
 
+https://comvace-it-solution.github.io/swagger-gas-demo/swagger/
+
 ## 概要
 GAS 上で稼働する API を対象として Swagger UI ドキュメントです。  
 固定パスワード認証を設け、パスワードを知っているユーザーのみが閲覧可能です。
