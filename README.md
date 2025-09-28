@@ -8,8 +8,8 @@ GAS 上で稼働する API を対象として Swagger UI ドキュメントで�
 ## 使用技術
 - Google Apps Script（バックエンド API）
 - Swagger UI（API ドキュメント表示）
-- Node.js / npm（ローカルでの Swagger UI 起動）
-- http-server（ローカルサーバー起動）
+- Node.js / npm（ローカルサーバー起動モジュール）
+- http-server/npx（ローカルサーバー起動）
 
 
 ## ローカルでの起動手順
@@ -21,15 +21,14 @@ GAS 上で稼働する API を対象として Swagger UI ドキュメントで�
     cd swagger-gas-demo
 2. npm モジュールインストール
     ```bash
-    npm install swagger-ui-dist
     npm install -g http-server
 3. localサーバーを起動
     ```bash
     http-server -p 8000
-    # もしくは
+    # npx動く環境なら
     npx http-server -p 8000
 4. ブラウザでアクセス
     ```arduino
-    http://127.0.0.1:8000/swagger.html
+    http://127.0.0.1:8000/docs/swagger/
 5. パスワード認証
 - 表示されるプロンプトに固定パスワードを入力すると Swagger UI が表示されます。
