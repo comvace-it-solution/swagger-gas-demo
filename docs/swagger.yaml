@@ -5,7 +5,7 @@ info:
   description: このドキュメントは模擬実習で使用するAPI仕様書です。Try it out 機能を使用することで実際のHTTPリクエストの検証も可能です。
 
 servers:
-  - url: https://script.google.com/macros/s/AKfycbzWouzV0ol5qMpbB_Ok6nUFDSUtCM5I0NRLdrluaQu1LDMOz-ssgi9zJJqTtymszy0
+  - url: https://script.google.com/macros/s/AKfycbxuIltO2eSw5yYFm0RFl4soMWeh-P1Vyq6EFSW5C9Q6veLa3zgYbICuTNf2wGp0eDaE
 
 paths:
   /exec:
