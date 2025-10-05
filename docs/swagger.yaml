@@ -71,7 +71,7 @@ paths:
                       hourly_wage: 1200
     delete:
       summary: データ削除
-      description: table パラメータに応じて 各テーブルの該当レコードの削除をします。
+      description: table パラメータに応じて 各テーブルの該当レコードの削除をします。また GAS は DELETE メソッドを直接扱えないため、実際の通信では POST メソッドで送信します。
       parameters:
         - name: table
           in: query
@@ -96,8 +96,6 @@ paths:
                 _method:
                   type: string
                   enum: ["DELETE"]
-                  description: |
-                    GAS は DELETE メソッドを直接扱えないため、実際の通信では POST メソッドで送信します。
             example:
               _method: "DELETE"
       responses:
