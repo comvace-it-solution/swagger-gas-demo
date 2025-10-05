@@ -5,7 +5,7 @@ info:
   description: このドキュメントは模擬実習で使用するAPI仕様書です。Try it out 機能を使用することで実際のHTTPリクエストの検証も可能です。
 
 servers:
-  - url: https://script.google.com/macros/s/AKfycbxuIltO2eSw5yYFm0RFl4soMWeh-P1Vyq6EFSW5C9Q6veLa3zgYbICuTNf2wGp0eDaE
+  - url: https://script.google.com/macros/s/AKfycbympEqp_EbJIhCQ8wJUOHONaE_t4920MOgruIivbx731iSWr8FjES9sRuh8Cs9JASo
 
 paths:
   /exec:
@@ -69,3 +69,55 @@ paths:
                     - id: 1
                       user_id: 2
                       hourly_wage: 1200
+    delete:
+      summary: データ削除
+      description: table パラメータに応じて 各テーブルの該当レコードの削除をします。
+      parameters:
+        - name: table
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [users, attendance, salary]
+          description: DBテーブル
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: レコードID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  enum: ["DELETE"]
+                  description: |
+                    GAS は DELETE メソッドを直接扱えないため、実際の通信では POST メソッドで送信します。
+            example:
+              _method: "DELETE"
+      responses:
+        '200':
+          description: リクエスト成功
+          content:
+            application/json:
+              examples:
+                users:
+                  summary: ユーザー情報削除
+                  value:
+                    - message: "削除しました"
+                    - id: "1"
+                attendance:
+                  summary: 勤怠情報削除
+                  value:
+                    - message: "削除しました"
+                    - id: "1"
+                salary:
+                  summary: 給与情報削除
+                  value:
+                    - message: "削除しました"
+                    - id: "1"
