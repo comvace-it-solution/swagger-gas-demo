@@ -110,14 +110,14 @@ paths:
                   summary: ユーザー情報削除
                   value:
                     - message: "削除しました"
-                    - id: "1"
+                      id: "1"
                 attendance:
                   summary: 勤怠情報削除
                   value:
                     - message: "削除しました"
-                    - id: "1"
+                      id: "1"
                 salary:
                   summary: 給与情報削除
                   value:
                     - message: "削除しました"
-                    - id: "1"
+                      id: "1"
